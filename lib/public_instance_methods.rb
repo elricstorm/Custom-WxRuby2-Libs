@@ -6,6 +6,38 @@ require 'wx'
 # from variables Wx_Sugar assigns from XRC source.
 module PublicInstanceMethods
 
+  def file_config(file)
+    config = {}
+    unless !File.exists?(file)
+      File.foreach(file) do |line|
+        line.strip!
+        # Skip comments and whitespace
+        if (line[0] != ?# and line =~ /\S/ )
+          i = line.index('=')
+          if (i)
+            config[line[0..i - 1].strip] = line[i + 1..-1].strip
+          else
+            config[line] = ''
+          end
+        end
+      end
+    else
+      config = nil
+      # debug_box("issues","file doesn't exist","#{file}")
+    end
+    return config
+  end
+
+  # This method is currently a quick debug box for reading variables
+  # and values.
+  def debug_box(method, variable, value)
+    dlg = Wx::MessageDialog.new(self,
+      "Method = #{method}\nVariable = #{variable}\nValue = #{value}", "Debugging #{method}",
+      Wx::OK | Wx::ICON_INFORMATION
+    )
+    dlg.show_modal()
+  end
+
   # This method displays an open modal dialog and returns the path selected.
   # It requires two variables: message which shows as the title of the
   # dialog, and wildcardopen which should be set similar to the following:
@@ -29,16 +61,6 @@ module PublicInstanceMethods
       path = dlg.get_path()
       return path
     end
-  end
-
-  # This method is currently a quick debug box for reading variables
-  # and values.
-  def debug_box(method, variable, value)
-    dlg = Wx::MessageDialog.new(self,
-      "Method = #{method}\nVariable = #{variable}\nValue = #{value}", "Debugging #{method}",
-      Wx::OK | Wx::ICON_INFORMATION
-    )
-    dlg.show_modal()
   end
 
   # This method processes a close/exit event for the GUI.
