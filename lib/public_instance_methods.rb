@@ -85,4 +85,46 @@ module PublicInstanceMethods
     t.start(timerms)
   end
 
+  # This method creates a default about box for the program.  It is
+  # currently preset with developer and copyright information to
+  # minimize input.  The only input arguments it takes is version
+  # and description.
+  def show_about_box(version,description)
+    Wx::about_box(
+      :name => self.title,
+      :version => version,
+      :description => description,
+      :developers => ['Joel Dezenzio'],
+      :copyright => "(C) 2010 Joel Dezenzio.  All rights reserved."
+    )
+  end
+
+  # This method displays an error to the user.  It contains a header
+  # and a message field that can be customized.
+  def show_error(header,message)
+    Wx::MessageDialog.new(@frame,
+      :message => message,
+      :caption => "#{header}",
+      :style => Wx::OK
+    ).show_modal
+  end
+
+  # This method displays a default message multiline text control to
+  # the user.  It can be used to display long messages.
+  def show_message(message)
+    dialog = Wx::Dialog.new(@frame)
+    dialog.sizer = Wx::BoxSizer.new(Wx::VERTICAL)
+    text = Wx::TextCtrl.new(dialog,
+      :style => Wx::TE_READONLY | Wx::TE_MULTILINE,
+      :value => message
+    )
+    dialog.sizer.add(text, 1, Wx::EXPAND)
+    ok_button = Wx::Button.new(dialog, Wx::ID_OK, "OK")
+    dialog.sizer.add(ok_button, 0, Wx::ALIGN_CENTER_HORIZONTAL)
+    ok_button.set_default
+    ok_button.set_focus
+    dialog.show_modal
+  end
+
+
 end
