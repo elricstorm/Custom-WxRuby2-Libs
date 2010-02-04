@@ -52,25 +52,25 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#M000005">#debug_box</a></li>
+					<li><a href="#M000006">#debug_box</a></li>
 					
-					<li><a href="#M000006">#dlg_on_open</a></li>
+					<li><a href="#M000007">#dlg_on_open</a></li>
 					
-					<li><a href="#M000007">#dlg_on_save</a></li>
+					<li><a href="#M000008">#dlg_on_save</a></li>
 					
-					<li><a href="#M000004">#file_config</a></li>
+					<li><a href="#M000009">#on_exit</a></li>
 					
-					<li><a href="#M000008">#on_exit</a></li>
+					<li><a href="#M000010">#set_icon_file</a></li>
 					
-					<li><a href="#M000009">#set_icon_file</a></li>
+					<li><a href="#M000011">#set_timer_threads</a></li>
 					
-					<li><a href="#M000010">#set_timer_threads</a></li>
+					<li><a href="#M000012">#show_about_box</a></li>
 					
-					<li><a href="#M000011">#show_about_box</a></li>
+					<li><a href="#M000013">#show_error</a></li>
 					
-					<li><a href="#M000012">#show_error</a></li>
+					<li><a href="#M000014">#show_message</a></li>
 					
-					<li><a href="#M000013">#show_message</a></li>
+					<li><a href="#M000015">#to_boolean</a></li>
 					
 				</ul>
 			</div>
@@ -114,6 +114,8 @@
 				
 					<li><a href="./ConfigurationFiles/ConfigReader.html">ConfigurationFiles::ConfigReader</a></li>
 				
+					<li><a href="./ConfigurationFiles/ConfigTranslator.html">ConfigurationFiles::ConfigTranslator</a></li>
+				
 					<li><a href="./PublicInstanceMethods.html">PublicInstanceMethods</a></li>
 				
 				</ul>
@@ -151,7 +153,7 @@ source.
 
 		
 			<div id="debug-box-method" class="method-detail ">
-				<a name="M000005"></a>
+				<a name="M000006"></a>
 
 				<div class="method-heading">
 				
@@ -173,14 +175,14 @@ values.
 					<div class="method-source-code"
 						id="debug-box-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 33</span>
-33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">debug_box</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">variable</span>, <span class="ruby-identifier">value</span>)
-34:     <span class="ruby-identifier">dlg</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>,
-35:       <span class="ruby-node">&quot;Method = #{method}\nVariable = #{variable}\nValue = #{value}&quot;</span>, <span class="ruby-node">&quot;Debugging #{method}&quot;</span>,
-36:       <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">OK</span> <span class="ruby-operator">|</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ICON_INFORMATION</span>
-37:     )
-38:     <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">show_modal</span>()
-39:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 11</span>
+11:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">debug_box</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">variable</span>, <span class="ruby-identifier">value</span>)
+12:     <span class="ruby-identifier">dlg</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>,
+13:       <span class="ruby-node">&quot;Method = #{method}\nVariable = #{variable}\nValue = #{value}&quot;</span>, <span class="ruby-node">&quot;Debugging #{method}&quot;</span>,
+14:       <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">OK</span> <span class="ruby-operator">|</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ICON_INFORMATION</span>
+15:     )
+16:     <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">show_modal</span>()
+17:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -190,7 +192,7 @@ values.
 
 		
 			<div id="dlg-on-open-method" class="method-detail ">
-				<a name="M000006"></a>
+				<a name="M000007"></a>
 
 				<div class="method-heading">
 				
@@ -214,14 +216,14 @@ wildcardopen which should be set similar to the following: $wildcardopen =
 					<div class="method-source-code"
 						id="dlg-on-open-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 45</span>
-45:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dlg_on_open</span>(<span class="ruby-identifier">message</span>,<span class="ruby-identifier">wildcardopen</span>)
-46:     <span class="ruby-identifier">dlg</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">FileDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">message</span>, <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">getwd</span>(), <span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-identifier">wildcardopen</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">OPEN</span>)
-47:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">show_modal</span>() <span class="ruby-operator">==</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ID_OK</span>
-48:       <span class="ruby-identifier">path</span> = <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">get_path</span>()
-49:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">path</span>
-50:     <span class="ruby-keyword kw">end</span>
-51:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 23</span>
+23:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dlg_on_open</span>(<span class="ruby-identifier">message</span>,<span class="ruby-identifier">wildcardopen</span>)
+24:     <span class="ruby-identifier">dlg</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">FileDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">message</span>, <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">getwd</span>(), <span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-identifier">wildcardopen</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">OPEN</span>)
+25:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">show_modal</span>() <span class="ruby-operator">==</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ID_OK</span>
+26:       <span class="ruby-identifier">path</span> = <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">get_path</span>()
+27:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">path</span>
+28:     <span class="ruby-keyword kw">end</span>
+29:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -231,7 +233,7 @@ wildcardopen which should be set similar to the following: $wildcardopen =
 
 		
 			<div id="dlg-on-save-method" class="method-detail ">
-				<a name="M000007"></a>
+				<a name="M000008"></a>
 
 				<div class="method-heading">
 				
@@ -255,65 +257,15 @@ wildcardsave which should be set similar to the following: $wildcardsave =
 					<div class="method-source-code"
 						id="dlg-on-save-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 57</span>
-57:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dlg_on_save</span>(<span class="ruby-identifier">message</span>,<span class="ruby-identifier">wildcardsave</span>)
-58:     <span class="ruby-identifier">dlg</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">FileDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">message</span>, <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">getwd</span>(), <span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-identifier">wildcardsave</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">SAVE</span>)
-59:     <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">set_filter_index</span>(<span class="ruby-value">2</span>)
-60:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">show_modal</span>() <span class="ruby-operator">==</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ID_OK</span>
-61:       <span class="ruby-identifier">path</span> = <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">get_path</span>()
-62:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">path</span>
-63:     <span class="ruby-keyword kw">end</span>
-64:   <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-			</div>
-
-		
-			<div id="file-config-method" class="method-detail ">
-				<a name="M000004"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">file_config</span><span
-						class="method-args">(file)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p class="missing-docs">(Not documented)</p>
-					
-
-					
-					<div class="method-source-code"
-						id="file-config-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 9</span>
- 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">file_config</span>(<span class="ruby-identifier">file</span>)
-10:     <span class="ruby-identifier">config</span> = {}
-11:     <span class="ruby-keyword kw">unless</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">file</span>)
-12:       <span class="ruby-constant">File</span>.<span class="ruby-identifier">foreach</span>(<span class="ruby-identifier">file</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
-13:         <span class="ruby-identifier">line</span>.<span class="ruby-identifier">strip!</span>
-14:         <span class="ruby-comment cmt"># Skip comments and whitespace</span>
-15:         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">line</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">?#</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\S/</span> )
-16:           <span class="ruby-identifier">i</span> = <span class="ruby-identifier">line</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">'='</span>)
-17:           <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">i</span>)
-18:             <span class="ruby-identifier">config</span>[<span class="ruby-identifier">line</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>] = <span class="ruby-identifier">line</span>[<span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">strip</span>
-19:           <span class="ruby-keyword kw">else</span>
-20:             <span class="ruby-identifier">config</span>[<span class="ruby-identifier">line</span>] = <span class="ruby-value str">''</span>
-21:           <span class="ruby-keyword kw">end</span>
-22:         <span class="ruby-keyword kw">end</span>
-23:       <span class="ruby-keyword kw">end</span>
-24:     <span class="ruby-keyword kw">else</span>
-25:       <span class="ruby-identifier">config</span> = <span class="ruby-keyword kw">nil</span>
-26:       <span class="ruby-comment cmt"># debug_box(&quot;issues&quot;,&quot;file doesn't exist&quot;,&quot;#{file}&quot;)</span>
-27:     <span class="ruby-keyword kw">end</span>
-28:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">config</span>
-29:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 35</span>
+35:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dlg_on_save</span>(<span class="ruby-identifier">message</span>,<span class="ruby-identifier">wildcardsave</span>)
+36:     <span class="ruby-identifier">dlg</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">FileDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">message</span>, <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">getwd</span>(), <span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-identifier">wildcardsave</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">SAVE</span>)
+37:     <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">set_filter_index</span>(<span class="ruby-value">2</span>)
+38:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">show_modal</span>() <span class="ruby-operator">==</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ID_OK</span>
+39:       <span class="ruby-identifier">path</span> = <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">get_path</span>()
+40:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">path</span>
+41:     <span class="ruby-keyword kw">end</span>
+42:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -323,7 +275,7 @@ wildcardsave which should be set similar to the following: $wildcardsave =
 
 		
 			<div id="on-exit-method" class="method-detail ">
-				<a name="M000008"></a>
+				<a name="M000009"></a>
 
 				<div class="method-heading">
 				
@@ -344,10 +296,10 @@ This method processes a close/exit event for the GUI.
 					<div class="method-source-code"
 						id="on-exit-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 67</span>
-67:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_exit</span>
-68:     <span class="ruby-identifier">close</span>
-69:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 45</span>
+45:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_exit</span>
+46:     <span class="ruby-identifier">close</span>
+47:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -357,7 +309,7 @@ This method processes a close/exit event for the GUI.
 
 		
 			<div id="set-icon-file-method" class="method-detail ">
-				<a name="M000009"></a>
+				<a name="M000010"></a>
 
 				<div class="method-heading">
 				
@@ -379,11 +331,11 @@ requires that the icon type be ICO format.
 					<div class="method-source-code"
 						id="set-icon-file-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 73</span>
-73:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_icon_file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">file</span>)
-74:     <span class="ruby-identifier">icon_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">path</span>), <span class="ruby-identifier">file</span>)
-75:     <span class="ruby-identifier">set_icon</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">Icon</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">icon_file</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">BITMAP_TYPE_ICO</span>)
-76:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 51</span>
+51:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_icon_file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">file</span>)
+52:     <span class="ruby-identifier">icon_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">path</span>), <span class="ruby-identifier">file</span>)
+53:     <span class="ruby-identifier">set_icon</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">Icon</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">icon_file</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">BITMAP_TYPE_ICO</span>)
+54:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -393,7 +345,7 @@ requires that the icon type be ICO format.
 
 		
 			<div id="set-timer-threads-method" class="method-detail ">
-				<a name="M000010"></a>
+				<a name="M000011"></a>
 
 				<div class="method-heading">
 				
@@ -417,12 +369,12 @@ the actual timer start.
 					<div class="method-source-code"
 						id="set-timer-threads-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 82</span>
-82:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_timer_threads</span>(<span class="ruby-identifier">threadms</span>,<span class="ruby-identifier">timerms</span>)
-83:     <span class="ruby-identifier">t</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">Timer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">threadms</span>)
-84:     <span class="ruby-identifier">evt_timer</span>(<span class="ruby-identifier">threadms</span>) { <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> }
-85:     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">timerms</span>)
-86:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 60</span>
+60:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_timer_threads</span>(<span class="ruby-identifier">threadms</span>,<span class="ruby-identifier">timerms</span>)
+61:     <span class="ruby-identifier">t</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">Timer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">threadms</span>)
+62:     <span class="ruby-identifier">evt_timer</span>(<span class="ruby-identifier">threadms</span>) { <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span> }
+63:     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">timerms</span>)
+64:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -432,7 +384,7 @@ the actual timer start.
 
 		
 			<div id="show-about-box-method" class="method-detail ">
-				<a name="M000011"></a>
+				<a name="M000012"></a>
 
 				<div class="method-heading">
 				
@@ -455,16 +407,16 @@ input arguments it takes is version and description.
 					<div class="method-source-code"
 						id="show-about-box-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 92</span>
- 92:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_about_box</span>(<span class="ruby-identifier">version</span>,<span class="ruby-identifier">description</span>)
- 93:     <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-identifier">about_box</span>(
- 94:       <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">title</span>,
- 95:       <span class="ruby-identifier">:version</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">version</span>,
- 96:       <span class="ruby-identifier">:description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">description</span>,
- 97:       <span class="ruby-identifier">:developers</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'Joel Dezenzio'</span>],
- 98:       <span class="ruby-identifier">:copyright</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;(C) 2010 Joel Dezenzio.  All rights reserved.&quot;</span>
- 99:     )
-100:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 70</span>
+70:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_about_box</span>(<span class="ruby-identifier">version</span>,<span class="ruby-identifier">description</span>)
+71:     <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-identifier">about_box</span>(
+72:       <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">title</span>,
+73:       <span class="ruby-identifier">:version</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">version</span>,
+74:       <span class="ruby-identifier">:description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">description</span>,
+75:       <span class="ruby-identifier">:developers</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'Joel Dezenzio'</span>],
+76:       <span class="ruby-identifier">:copyright</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;(C) 2010 Joel Dezenzio.  All rights reserved.&quot;</span>
+77:     )
+78:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -474,7 +426,7 @@ input arguments it takes is version and description.
 
 		
 			<div id="show-error-method" class="method-detail ">
-				<a name="M000012"></a>
+				<a name="M000013"></a>
 
 				<div class="method-heading">
 				
@@ -496,14 +448,14 @@ message field that can be customized.
 					<div class="method-source-code"
 						id="show-error-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 104</span>
-104:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_error</span>(<span class="ruby-identifier">header</span>,<span class="ruby-identifier">message</span>)
-105:     <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@frame</span>,
-106:       <span class="ruby-identifier">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">message</span>,
-107:       <span class="ruby-identifier">:caption</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{header}&quot;</span>,
-108:       <span class="ruby-identifier">:style</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">OK</span>
-109:     ).<span class="ruby-identifier">show_modal</span>
-110:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 82</span>
+82:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_error</span>(<span class="ruby-identifier">header</span>,<span class="ruby-identifier">message</span>)
+83:     <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@frame</span>,
+84:       <span class="ruby-identifier">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">message</span>,
+85:       <span class="ruby-identifier">:caption</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{header}&quot;</span>,
+86:       <span class="ruby-identifier">:style</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">OK</span>
+87:     ).<span class="ruby-identifier">show_modal</span>
+88:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -513,7 +465,7 @@ message field that can be customized.
 
 		
 			<div id="show-message-method" class="method-detail ">
-				<a name="M000013"></a>
+				<a name="M000014"></a>
 
 				<div class="method-heading">
 				
@@ -535,21 +487,54 @@ It can be used to display long messages.
 					<div class="method-source-code"
 						id="show-message-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 114</span>
-114:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_message</span>(<span class="ruby-identifier">message</span>)
-115:     <span class="ruby-identifier">dialog</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">Dialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@frame</span>)
-116:     <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">sizer</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">BoxSizer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">VERTICAL</span>)
-117:     <span class="ruby-identifier">text</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">TextCtrl</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dialog</span>,
-118:       <span class="ruby-identifier">:style</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">TE_READONLY</span> <span class="ruby-operator">|</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">TE_MULTILINE</span>,
-119:       <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">message</span>
-120:     )
-121:     <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">sizer</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">text</span>, <span class="ruby-value">1</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">EXPAND</span>)
-122:     <span class="ruby-identifier">ok_button</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dialog</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ID_OK</span>, <span class="ruby-value str">&quot;OK&quot;</span>)
-123:     <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">sizer</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">ok_button</span>, <span class="ruby-value">0</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ALIGN_CENTER_HORIZONTAL</span>)
-124:     <span class="ruby-identifier">ok_button</span>.<span class="ruby-identifier">set_default</span>
-125:     <span class="ruby-identifier">ok_button</span>.<span class="ruby-identifier">set_focus</span>
-126:     <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">show_modal</span>
-127:   <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 92</span>
+ 92:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">show_message</span>(<span class="ruby-identifier">message</span>)
+ 93:     <span class="ruby-identifier">dialog</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">Dialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@frame</span>)
+ 94:     <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">sizer</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">BoxSizer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">VERTICAL</span>)
+ 95:     <span class="ruby-identifier">text</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">TextCtrl</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dialog</span>,<span class="ruby-identifier">:style</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">TE_READONLY</span> <span class="ruby-operator">|</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">TE_MULTILINE</span>,<span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">message</span>)
+ 96:     <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">sizer</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">text</span>, <span class="ruby-value">1</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">EXPAND</span>)
+ 97:     <span class="ruby-identifier">ok_button</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">Button</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dialog</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ID_OK</span>, <span class="ruby-value str">&quot;OK&quot;</span>)
+ 98:     <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">sizer</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">ok_button</span>, <span class="ruby-value">0</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ALIGN_CENTER_HORIZONTAL</span>)
+ 99:     <span class="ruby-identifier">ok_button</span>.<span class="ruby-identifier">set_default</span>
+100:     <span class="ruby-identifier">ok_button</span>.<span class="ruby-identifier">set_focus</span>
+101:     <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">show_modal</span>
+102:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="to-boolean-method" class="method-detail ">
+				<a name="M000015"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_boolean</span><span
+						class="method-args">(string)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+This method converts a string to boolean format.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="to-boolean-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/public_instance_methods.rb, line 105</span>
+105:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_boolean</span>(<span class="ruby-identifier">string</span>)
+106:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">string</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">string</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^true$/i</span>
+107:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">string</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">string</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^false$/i</span>
+108:     <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;invalid value for to_boolean: \&quot;#{string}\&quot;&quot;</span>)
+109:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

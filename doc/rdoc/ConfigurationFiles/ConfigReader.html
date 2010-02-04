@@ -109,6 +109,8 @@
 				
 					<li><a href="../ConfigurationFiles/ConfigReader.html">ConfigurationFiles::ConfigReader</a></li>
 				
+					<li><a href="../ConfigurationFiles/ConfigTranslator.html">ConfigurationFiles::ConfigTranslator</a></li>
+				
 					<li><a href="../PublicInstanceMethods.html">PublicInstanceMethods</a></li>
 				
 				</ul>
@@ -123,7 +125,12 @@
 		<h1 class="class">ConfigurationFiles::ConfigReader</h1>
 
 		<div id="description">
-			
+			<p>
+This class reads through the translated key/value pairs of each hash array
+and sets the configuration data to @configuration[:somename]. The value can
+then be translated by the program into usable data.
+</p>
+
 		</div>
 
 		<!-- Constants -->
@@ -145,7 +152,9 @@
 
 				<div class="method-description">
 				
-				<p class="missing-docs">(Not documented)</p>
+				<p>
+normal attribute reader variables
+</p>
 				
 				</div>
 			</div>
@@ -160,7 +169,9 @@
 
 				<div class="method-description">
 				
-				<p class="missing-docs">(Not documented)</p>
+				<p>
+normal attribute reader variables
+</p>
 				
 				</div>
 			</div>
@@ -187,18 +198,21 @@
 
 				<div class="method-description">
 					
-					<p class="missing-docs">(Not documented)</p>
+					<p>
+This method is setting up our file and configuration vars. The
+configuration var being passed to it is a hash array.
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/configuration_files.rb, line 7</span>
- 7:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">configuration</span>=[])
- 8:       <span class="ruby-ivar">@file</span> = <span class="ruby-identifier">file</span>
- 9:       <span class="ruby-ivar">@configuration</span> = <span class="ruby-identifier">configuration</span>
-10:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/configuration_files.rb, line 16</span>
+16:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">configuration</span>=[])
+17:       <span class="ruby-ivar">@file</span> = <span class="ruby-identifier">file</span>
+18:       <span class="ruby-ivar">@configuration</span> = <span class="ruby-identifier">configuration</span>
+19:     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -226,17 +240,19 @@
 
 				<div class="method-description">
 					
-					<p class="missing-docs">(Not documented)</p>
+					<p>
+This method destroys the keys within the configuration file.
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="config-destroy-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/configuration_files.rb, line 30</span>
-30:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">config_destroy</span>
-31:       <span class="ruby-ivar">@configuration</span> = []
-32:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/configuration_files.rb, line 46</span>
+46:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">config_destroy</span>
+47:       <span class="ruby-ivar">@configuration</span> = []
+48:     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -258,22 +274,26 @@
 
 				<div class="method-description">
 					
-					<p class="missing-docs">(Not documented)</p>
+					<p>
+This method reads through the initial @file that was first initialized
+through the new class and sets the configuration vars to
+@configuration[:name] where :name is the name of the key on each line.
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="config-reader-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/configuration_files.rb, line 12</span>
-12:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">config_reader</span>
-13:       <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">nil?</span>
-14:         <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
-15:           <span class="ruby-ivar">@configuration</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
-16:         <span class="ruby-keyword kw">end</span>
-17:         <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@configuration</span>
-18:       <span class="ruby-keyword kw">end</span>
-19:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/configuration_files.rb, line 24</span>
+24:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">config_reader</span>
+25:       <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">nil?</span>
+26:         <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+27:           <span class="ruby-ivar">@configuration</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
+28:         <span class="ruby-keyword kw">end</span>
+29:         <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@configuration</span>
+30:       <span class="ruby-keyword kw">end</span>
+31:     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -295,22 +315,28 @@
 
 				<div class="method-description">
 					
-					<p class="missing-docs">(Not documented)</p>
+					<p>
+This method does exactly what <a
+href="ConfigReader.html#M000001">config_reader</a> does except that
+it&#8217;s being passed a file extension which is different than the
+initial file first ready through the new class instantiation. It then
+updates all keys within the configuration file. This is an updater method.
+</p>
 					
 
 					
 					<div class="method-source-code"
 						id="config-update-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/configuration_files.rb, line 21</span>
-21:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">config_update</span>(<span class="ruby-identifier">ext</span>)
-22:       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">ext</span>.<span class="ruby-identifier">nil?</span>
-23:         <span class="ruby-identifier">ext</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
-24:           <span class="ruby-ivar">@configuration</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
-25:         <span class="ruby-keyword kw">end</span>
-26:         <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@configuration</span>
-27:       <span class="ruby-keyword kw">end</span>
-28:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/configuration_files.rb, line 37</span>
+37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">config_update</span>(<span class="ruby-identifier">ext</span>)
+38:       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">ext</span>.<span class="ruby-identifier">nil?</span>
+39:         <span class="ruby-identifier">ext</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+40:           <span class="ruby-ivar">@configuration</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
+41:         <span class="ruby-keyword kw">end</span>
+42:         <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@configuration</span>
+43:       <span class="ruby-keyword kw">end</span>
+44:     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

@@ -6,28 +6,6 @@ require 'wx'
 # from variables Wx_Sugar assigns from XRC source.
 module PublicInstanceMethods
 
-  def file_config(file)
-    config = {}
-    unless !File.exists?(file)
-      File.foreach(file) do |line|
-        line.strip!
-        # Skip comments and whitespace
-        if (line[0] != ?# and line =~ /\S/ )
-          i = line.index('=')
-          if (i)
-            config[line[0..i - 1].strip] = line[i + 1..-1].strip
-          else
-            config[line] = ''
-          end
-        end
-      end
-    else
-      config = nil
-      # debug_box("issues","file doesn't exist","#{file}")
-    end
-    return config
-  end
-
   # This method is currently a quick debug box for reading variables
   # and values.
   def debug_box(method, variable, value)
@@ -114,10 +92,7 @@ module PublicInstanceMethods
   def show_message(message)
     dialog = Wx::Dialog.new(@frame)
     dialog.sizer = Wx::BoxSizer.new(Wx::VERTICAL)
-    text = Wx::TextCtrl.new(dialog,
-      :style => Wx::TE_READONLY | Wx::TE_MULTILINE,
-      :value => message
-    )
+    text = Wx::TextCtrl.new(dialog,:style => Wx::TE_READONLY | Wx::TE_MULTILINE,:value => message)
     dialog.sizer.add(text, 1, Wx::EXPAND)
     ok_button = Wx::Button.new(dialog, Wx::ID_OK, "OK")
     dialog.sizer.add(ok_button, 0, Wx::ALIGN_CENTER_HORIZONTAL)
@@ -126,5 +101,11 @@ module PublicInstanceMethods
     dialog.show_modal
   end
 
+  # This method converts a string to boolean format.
+  def to_boolean(string)
+    return true if string == true || string =~ /^true$/i
+    return false if string == false || string.nil? || string =~ /^false$/i
+    raise ArgumentError.new("invalid value for to_boolean: \"#{string}\"")
+  end
 
 end
