@@ -5,7 +5,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>Class: WxControlMethods::ListItem</title>
+	<title>Class: WxDialogMethods::ListItem</title>
 
 	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
 
@@ -28,8 +28,8 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="../lib/wx_control_methods_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/wx_control_methods.rb">lib/wx_control_methods.rb</a></li>
+						<li><a href="../lib/wx_dialog_methods_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/wx_dialog_methods.rb">lib/wx_dialog_methods.rb</a></li>
 					
 					</ul>
 				</div>
@@ -59,7 +59,7 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#M000013">::create</a></li>
+					<li><a href="#M000016">::create</a></li>
 					
 				</ul>
 			</div>
@@ -128,13 +128,13 @@
 	</div>
 
 	<div id="documentation">
-		<h1 class="class">WxControlMethods::ListItem</h1>
+		<h1 class="class">WxDialogMethods::ListItem</h1>
 
 		<div id="description">
 			<p>
 This class changes the way a default <a href="ListItem.html">ListItem</a>
 can be created. It uses the following syntax: Format: <a
-href="ListItem.html#M000013">ListItem.create</a>(element,text,index,column,line)
+href="ListItem.html#M000016">ListItem.create</a>(element,text,index,column,line)
 </p>
 
 		</div>
@@ -152,7 +152,7 @@ href="ListItem.html#M000013">ListItem.create</a>(element,text,index,column,line)
 
 		
 			<div id="create-method" class="method-detail ">
-				<a name="M000013"></a>
+				<a name="M000016"></a>
 
 				<div class="method-heading">
 				
@@ -166,13 +166,13 @@ href="ListItem.html#M000013">ListItem.create</a>(element,text,index,column,line)
 					
 					<p>
 Example: <a
-href="ListItem.html#M000013">ListItem.create</a>(self,&#8217;col one row
+href="ListItem.html#M000016">ListItem.create</a>(self,&#8217;col one row
 one&#8217;,0,0,0) Example: <a
-href="ListItem.html#M000013">ListItem.create</a>(self,&#8217;col two row
+href="ListItem.html#M000016">ListItem.create</a>(self,&#8217;col two row
 one&#8217;,0,1,1) Example: <a
-href="ListItem.html#M000013">ListItem.create</a>(self,&#8217;col one row
+href="ListItem.html#M000016">ListItem.create</a>(self,&#8217;col one row
 two&#8217;,1,0,0) Example: <a
-href="ListItem.html#M000013">ListItem.create</a>(self,&#8217;col two row
+href="ListItem.html#M000016">ListItem.create</a>(self,&#8217;col two row
 two&#8217;,1,1,1)
 </p>
 					
@@ -181,15 +181,15 @@ two&#8217;,1,1,1)
 					<div class="method-source-code"
 						id="create-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/wx_control_methods.rb, line 15</span>
-15:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">element</span>,<span class="ruby-identifier">text</span>,<span class="ruby-identifier">index</span>,<span class="ruby-identifier">column</span>,<span class="ruby-identifier">line</span>)
-16:       <span class="ruby-identifier">li</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ListItem</span>.<span class="ruby-identifier">new</span>()
-17:       <span class="ruby-identifier">li</span>.<span class="ruby-identifier">set_text</span> <span class="ruby-identifier">text</span>
-18:       <span class="ruby-identifier">li</span>.<span class="ruby-identifier">set_id</span>(<span class="ruby-identifier">index</span>)
-19:       <span class="ruby-identifier">li</span>.<span class="ruby-identifier">set_column</span>(<span class="ruby-identifier">column</span>)
-20:       <span class="ruby-identifier">element</span>.<span class="ruby-identifier">insert_item</span>(<span class="ruby-identifier">li</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
-21:       <span class="ruby-identifier">element</span>.<span class="ruby-identifier">set_item</span>(<span class="ruby-identifier">li</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
-22:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/wx_dialog_methods.rb, line 44</span>
+44:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">element</span>,<span class="ruby-identifier">text</span>,<span class="ruby-identifier">index</span>,<span class="ruby-identifier">column</span>,<span class="ruby-identifier">line</span>)
+45:       <span class="ruby-identifier">li</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ListItem</span>.<span class="ruby-identifier">new</span>()
+46:       <span class="ruby-identifier">li</span>.<span class="ruby-identifier">set_text</span> <span class="ruby-identifier">text</span>
+47:       <span class="ruby-identifier">li</span>.<span class="ruby-identifier">set_id</span>(<span class="ruby-identifier">index</span>)
+48:       <span class="ruby-identifier">li</span>.<span class="ruby-identifier">set_column</span>(<span class="ruby-identifier">column</span>)
+49:       <span class="ruby-identifier">element</span>.<span class="ruby-identifier">insert_item</span>(<span class="ruby-identifier">li</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+50:       <span class="ruby-identifier">element</span>.<span class="ruby-identifier">set_item</span>(<span class="ruby-identifier">li</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+51:     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

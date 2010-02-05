@@ -16,31 +16,6 @@ module PublicInstanceMethods
     dlg.show_modal()
   end
 
-  # This method displays an open modal dialog and returns the path selected.
-  # It requires two variables: message which shows as the title of the
-  # dialog, and wildcardopen which should be set similar to the following:
-  # $wildcardopen = "Kirin Source (*.kir)|*.kir|All files (*.*)|*.*"
-  def dlg_on_open(message,wildcardopen)
-    dlg = Wx::FileDialog.new(self, message, Dir.getwd(), "", wildcardopen, Wx::OPEN)
-    if dlg.show_modal() == Wx::ID_OK
-      path = dlg.get_path()
-      return path
-    end
-  end
-
-  # This method displays a save modal dialog and returns the path selected.
-  # It requires two variables: message which shows as the title of the
-  # dialog, and wildcardsave which should be set similar to the following:
-  # $wildcardsave = "All Files (*.*)|*.*|Kirin Source (*.kir)|*.kir"
-  def dlg_on_save(message,wildcardsave)
-    dlg = Wx::FileDialog.new(self, message, Dir.getwd(), "", wildcardsave, Wx::SAVE)
-    dlg.set_filter_index(2)
-    if dlg.show_modal() == Wx::ID_OK
-      path = dlg.get_path()
-      return path
-    end
-  end
-
   # This method processes a close/exit event for the GUI.
   def on_exit
     close
@@ -75,16 +50,6 @@ module PublicInstanceMethods
       :developers => ['Joel Dezenzio'],
       :copyright => "(C) 2010 Joel Dezenzio.  All rights reserved."
     )
-  end
-
-  # This method displays an error to the user.  It contains a header
-  # and a message field that can be customized.
-  def show_error(header,message)
-    Wx::MessageDialog.new(@frame,
-      :message => message,
-      :caption => "#{header}",
-      :style => Wx::OK
-    ).show_modal
   end
 
   # This method displays a default message multiline text control to

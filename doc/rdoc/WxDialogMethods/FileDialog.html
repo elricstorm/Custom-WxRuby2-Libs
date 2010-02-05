@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: WxDialogMethods::FileDialog</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/wx_dialog_methods_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/wx_dialog_methods.rb">lib/wx_dialog_methods.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000014">::open</a></li>
+					
+					<li><a href="#M000015">::save</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+				
+					<li class="file"><a href="../README.html">README</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../WxDialogMethods.html">WxDialogMethods</a></li>
+				
+					<li><a href="../WxDialogMethods/FileDialog.html">WxDialogMethods::FileDialog</a></li>
+				
+					<li><a href="../WxDialogMethods/ListItem.html">WxDialogMethods::ListItem</a></li>
+				
+					<li><a href="../WxDialogMethods/MessageBox.html">WxDialogMethods::MessageBox</a></li>
+				
+					<li><a href="../ConfigurationFiles.html">ConfigurationFiles</a></li>
+				
+					<li><a href="../ConfigurationFiles/ConfigReader.html">ConfigurationFiles::ConfigReader</a></li>
+				
+					<li><a href="../ConfigurationFiles/ConfigTranslator.html">ConfigurationFiles::ConfigTranslator</a></li>
+				
+					<li><a href="../WxControlMethods.html">WxControlMethods</a></li>
+				
+					<li><a href="../WxControlMethods/ListItem.html">WxControlMethods::ListItem</a></li>
+				
+					<li><a href="../PublicInstanceMethods.html">PublicInstanceMethods</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">WxDialogMethods::FileDialog</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="open-method" class="method-detail ">
+				<a name="M000014"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">open</span><span
+						class="method-args">(element, message,wildcardopen)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+This method displays an open modal dialog and returns the path selected. It
+requires two variables: message which shows as the title of the dialog, and
+wildcardopen which should be set similar to the following: $wildcardopen =
+&#8220;Kirin Source (*.kir)|*.kir|All files (<b>.</b>)|<b>.</b>&#8220;
+Example: <a
+href="FileDialog.html#M000014">FileDialog.open</a>(self,&#8220;Open
+Workspace..&#8221;,&#8220;Kirin Source (*.kir)|*.kir|All files
+(<b>.</b>)|<b>.</b>&#8220;)
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="open-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/wx_dialog_methods.rb, line 14</span>
+14:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">element</span>, <span class="ruby-identifier">message</span>,<span class="ruby-identifier">wildcardopen</span>)
+15:       <span class="ruby-identifier">dlg</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">FileDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">element</span>, <span class="ruby-identifier">message</span>, <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">getwd</span>(), <span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-identifier">wildcardopen</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">OPEN</span>)
+16:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">show_modal</span>() <span class="ruby-operator">==</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ID_OK</span>
+17:         <span class="ruby-identifier">path</span> = <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">get_path</span>()
+18:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">path</span>
+19:       <span class="ruby-keyword kw">end</span>
+20:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="save-method" class="method-detail ">
+				<a name="M000015"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">save</span><span
+						class="method-args">(element,message,wildcardsave)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+This method displays a save modal dialog and returns the path selected. It
+requires two variables: message which shows as the title of the dialog, and
+wildcardsave which should be set similar to the following: $wildcardsave =
+&#8220;All Files (<b>.</b>)|<b>.</b>|Kirin Source (*.kir)|*.kir&#8221;
+Example: <a
+href="FileDialog.html#M000015">FileDialog.save</a>(self,&#8220;Save
+Workspace..&#8221;,&#8220;All Files (<b>.</b>)|<b>.</b>|Kirin Source
+(*.kir)|*.kir&#8221;)
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="save-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/wx_dialog_methods.rb, line 26</span>
+26:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">element</span>,<span class="ruby-identifier">message</span>,<span class="ruby-identifier">wildcardsave</span>)
+27:       <span class="ruby-identifier">dlg</span> = <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">FileDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">element</span>, <span class="ruby-identifier">message</span>, <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">getwd</span>(), <span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-identifier">wildcardsave</span>, <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">SAVE</span>)
+28:       <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">set_filter_index</span>(<span class="ruby-value">2</span>)
+29:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">show_modal</span>() <span class="ruby-operator">==</span> <span class="ruby-constant">Wx</span><span class="ruby-operator">::</span><span class="ruby-constant">ID_OK</span>
+30:         <span class="ruby-identifier">path</span> = <span class="ruby-identifier">dlg</span>.<span class="ruby-identifier">get_path</span>()
+31:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">path</span>
+32:       <span class="ruby-keyword kw">end</span>
+33:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
