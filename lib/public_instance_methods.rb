@@ -1,10 +1,23 @@
 require 'wx'
+require 'cgi'
 # This Module should be placed in the custom libraries set in RUBYLIB
 # This module is used for WxRuby2 applications and applies to
 # public instance methods associated with the core app.  It is
 # not designed to replace modules that require they be extended
 # from variables Wx_Sugar assigns from XRC source.
 module PublicInstanceMethods
+
+  # This method appends other items to the label.
+  def append_site(current_label, new_label)
+    current_label += Array(new_label)
+    return current_label
+  end
+
+  # This method is used to escape html characters
+  def html_escape(chars)
+    return CGI.escape(chars)
+  end
+
 
   # This method is currently a quick debug box for reading variables
   # and values.
