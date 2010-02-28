@@ -86,4 +86,12 @@ module PublicInstanceMethods
     raise ArgumentError.new("invalid value for to_boolean: \"#{string}\"")
   end
 
+  def validate_file_name(name)
+    if name.match(/\W/)
+      return false
+    else
+      return true
+    end
+  end
+
 end
